@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PARKIRAJ.ME</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="background-overlay"></div>
+  <header>
+    <div class="logo">PARKIRAJ.<span class="logo-accent">ME</span></div>
+    <nav>
+      <button id="btn-home" class="nav-btn">Home</button>
+      <button id="btn-seeker" class="nav-btn">Tražim parking</button>
+      <button id="btn-provider" class="nav-btn">Rentam parking</button>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <!-- Home Section -->
+    <section id="home-section" class="page-section active">
+      <h1 class="main-title">Pronađi ili iznajmi parking mjesto u Hrvatskoj</h1>
+      <h2 class="subtitle">Povezujemo vlasnike parking mjesta s onima koji ih trebaju</h2>
+      <div class="cta-buttons">
+        <button id="cta-seeker" class="cta-btn">Tražim parking</button>
+        <button id="cta-provider" class="cta-btn">Rentam parking</button>
+      </div>
+    </section>
+
+    <!-- Seeker Section -->
+    <section id="seeker-section" class="page-section">
+      <form id="seeker-form" autocomplete="off">
+        <h2>Registracija korisnika</h2>
+        <div class="form-row">
+          <input type="text" name="ime" placeholder="Ime" required />
+          <input type="text" name="prezime" placeholder="Prezime" required />
+        </div>
+        <div class="form-row">
+          <input type="email" name="email" placeholder="Email" required />
+          <input type="date" name="dob" placeholder="Datum rođenja" required />
+        </div>
+        <div class="form-row">
+          <input type="text" name="kontakt" placeholder="Kontakt broj" required />
+          <input type="text" name="lokacija" placeholder="Lokacija" required />
+        </div>
+        <button type="submit" class="form-btn">Registriraj se</button>
+      </form>
+      <form id="parking-search-form" autocomplete="off" class="hidden">
+        <h2>Traži parking</h2>
+        <div class="form-row">
+          <input type="text" name="auto" placeholder="Detalji vozila" required />
+          <input type="datetime-local" name="od" min="1900-01-01T00:00" max="2030-12-31T23:59" required />
+          <input type="datetime-local" name="do" min="1900-01-01T00:00" max="2030-12-31T23:59" required />
+        </div>
+        <div class="form-row">
+          <input type="text" name="lokacija" placeholder="Lokacija" required />
+          <input type="number" name="cijena" placeholder="Maks. cijena (EUR)" min="0" />
+        </div>
+        <button type="submit" class="form-btn">Pronađi parking</button>
+      </form>
+      <div id="search-results" class="results-list"></div>
+      <div id="seeker-map" class="map-container hidden"></div>
+    </section>
+
+    <!-- Provider Section -->
+    <section id="provider-section" class="page-section">
+      <form id="provider-form" autocomplete="off">
+        <h2>Registracija iznajmljivača</h2>
+        <div class="form-row">
+          <input type="text" name="ime" placeholder="Ime" required />
+          <input type="text" name="prezime" placeholder="Prezime" required />
+        </div>
+        <div class="form-row">
+          <input type="email" name="email" placeholder="Email" required />
+          <input type="date" name="dob" placeholder="Datum rođenja" required />
+        </div>
+        <div class="form-row">
+          <input type="text" name="kontakt" placeholder="Kontakt broj" required />
+          <input type="text" name="lokacija" placeholder="Lokacija parkinga" required />
+        </div>
+        <button type="submit" class="form-btn">Registriraj se</button>
+      </form>
+      <form id="parking-upload-form" autocomplete="off" class="hidden">
+        <h2>Dodaj parking mjesto</h2>
+        <div class="form-row">
+          <select name="velicina" required>
+            <option value="">Veličina</option>
+            <option value="malo">Malo</option>
+            <option value="srednje">Srednje</option>
+            <option value="veliko">Veliko</option>
+          </select>
+          <input type="text" name="lokacija" placeholder="Lokacija" required />
+        </div>
+        <div class="form-row">
+          <input type="text" name="pristup" placeholder="Pristup (garaža, dvorište...)" required />
+          <input type="number" name="cijena" placeholder="Cijena (EUR/dan)" min="0" required />
+        </div>
+        <div class="form-row">
+          <input type="text" name="kontakt" placeholder="Kontakt broj" required />
+          <input type="number" name="trajanje" placeholder="Duljina najma (dana)" min="1" required />
+        </div>
+        <button type="submit" class="form-btn">Dodaj parking</button>
+      </form>
+      <div id="provider-listings" class="results-list"></div>
+      <div id="provider-map" class="map-container hidden"></div>
+    </section>
+  </main>
+
+  <div id="popup-message" class="popup-message"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
