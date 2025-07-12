@@ -62,7 +62,6 @@
 
 ## Screenshots
 
-In progress
 ---
 
 ## Getting Started
