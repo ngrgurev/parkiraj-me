@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="hr">
+<html lang="hr" translate="no">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="google" content="notranslate">
   <title>PARKIRAJ.ME</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -41,8 +42,73 @@
       </div>
     </section>
 
-    <!-- Seeker Section -->
-    <section id="seeker-section" class="page-section">
+    <!-- Seeker Login Section -->
+    <section id="seeker-login-section" class="page-section">
+      <div class="login-container">
+        <h2 data-lang-key="seeker-login-title">Prijavite se za traženje parkinga</h2>
+        <form id="seeker-login-form" class="login-form">
+          <div class="form-group">
+            <input type="text" name="username" data-lang-key="placeholder-username-email" placeholder="Email ili korisničko ime" required />
+          </div>
+          <div class="form-group">
+            <input type="password" name="password" data-lang-key="placeholder-password" placeholder="Lozinka" required />
+          </div>
+          <button type="submit" class="login-btn" data-lang-key="btn-login">Prijavite se</button>
+          <div class="login-footer">
+            <a href="#" class="forgot-password" data-lang-key="forgot-password">Zaboravili ste lozinku?</a>
+            <p class="signup-prompt">
+              <span data-lang-key="no-account">Nemate račun?</span>
+              <a href="#" id="seeker-signup-link" data-lang-key="create-account">Stvorite račun</a>
+            </p>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Provider Login Section -->
+    <section id="provider-login-section" class="page-section">
+      <div class="login-container">
+        <h2 data-lang-key="provider-login-title">Prijavite se za iznajmljivanje</h2>
+        <form id="provider-login-form" class="login-form">
+          <div class="form-group">
+            <input type="text" name="username" data-lang-key="placeholder-username-email" placeholder="Email ili korisničko ime" required />
+          </div>
+          <div class="form-group">
+            <input type="password" name="password" data-lang-key="placeholder-password" placeholder="Lozinka" required />
+          </div>
+          <button type="submit" class="login-btn" data-lang-key="btn-login">Prijavite se</button>
+          <div class="login-footer">
+            <a href="#" class="forgot-password" data-lang-key="forgot-password">Zaboravili ste lozinku?</a>
+            <p class="signup-prompt">
+              <span data-lang-key="no-account">Nemate račun?</span>
+              <a href="#" id="provider-signup-link" data-lang-key="create-account">Stvorite račun</a>
+            </p>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Password Reset Section -->
+    <section id="password-reset-section" class="page-section">
+      <div class="login-container">
+        <h2 data-lang-key="reset-password-title">Resetiraj lozinku</h2>
+        <p class="reset-description" data-lang-key="reset-description">Unesite svoju email adresu i poslat ćemo vam kod za resetiranje lozinke.</p>
+        <form id="password-reset-form" class="login-form">
+          <div class="form-group">
+            <input type="email" name="email" data-lang-key="placeholder-email-reset" placeholder="Vaša email adresa" required />
+          </div>
+          <button type="submit" class="login-btn" data-lang-key="btn-get-code">Pošaljite kod</button>
+          <div class="login-footer">
+            <p class="back-to-login">
+              <a href="#" id="back-to-login-from-reset" data-lang-key="back-to-login-link">Povratak na prijavu</a>
+            </p>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Seeker Registration Section -->
+    <section id="seeker-registration-section" class="page-section">
       <form id="seeker-form" autocomplete="off">
         <h2 data-lang-key="seeker-registration">Registracija korisnika</h2>
         <div class="form-row">
@@ -57,7 +123,15 @@
           <input type="text" name="kontakt" data-lang-key="placeholder-contact" placeholder="Kontakt broj" required />
           <input type="text" name="lokacija" data-lang-key="placeholder-location" placeholder="Lokacija" required />
         </div>
+        <div class="form-row">
+          <input type="password" name="password" data-lang-key="placeholder-new-password" placeholder="Lozinka" required />
+          <input type="password" name="confirm-password" data-lang-key="placeholder-confirm-password" placeholder="Potvrdite lozinku" required />
+        </div>
         <button type="submit" class="form-btn" data-lang-key="btn-register">Registriraj se</button>
+        <p class="login-prompt">
+          <span data-lang-key="have-account">Već imate račun?</span>
+          <a href="#" id="back-to-seeker-login" data-lang-key="back-to-login">Prijavite se</a>
+        </p>
       </form>
       <form id="parking-search-form" autocomplete="off" class="hidden">
         <h2 data-lang-key="search-parking">Traži parking</h2>
@@ -76,8 +150,8 @@
       <div id="seeker-map" class="map-container hidden"></div>
     </section>
 
-    <!-- Provider Section -->
-    <section id="provider-section" class="page-section">
+    <!-- Provider Registration Section -->
+    <section id="provider-registration-section" class="page-section">
       <form id="provider-form" autocomplete="off">
         <h2 data-lang-key="provider-registration">Registracija iznajmljivača</h2>
         <div class="form-row">
@@ -92,7 +166,15 @@
           <input type="text" name="kontakt" data-lang-key="placeholder-contact" placeholder="Kontakt broj" required />
           <input type="text" name="lokacija" data-lang-key="placeholder-parking-location" placeholder="Lokacija parkinga" required />
         </div>
+        <div class="form-row">
+          <input type="password" name="password" data-lang-key="placeholder-new-password" placeholder="Lozinka" required />
+          <input type="password" name="confirm-password" data-lang-key="placeholder-confirm-password" placeholder="Potvrdite lozinku" required />
+        </div>
         <button type="submit" class="form-btn" data-lang-key="btn-register">Registriraj se</button>
+        <p class="login-prompt">
+          <span data-lang-key="have-account">Već imate račun?</span>
+          <a href="#" id="back-to-provider-login" data-lang-key="back-to-login">Prijavite se</a>
+        </p>
       </form>
       <form id="parking-upload-form" autocomplete="off" class="hidden">
         <h2 data-lang-key="add-parking">Dodaj parking mjesto</h2>
