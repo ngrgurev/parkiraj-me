@@ -62,8 +62,7 @@
 
 ## Screenshots
 
-*(Add your screenshots here after running the app!)*
-
+In progress
 ---
 
 ## Getting Started
