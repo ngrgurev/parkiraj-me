@@ -85,7 +85,27 @@ const translations = {
     'footer-community-link': 'Pridružite se zajednici',
     'footer-privacy-link': 'Privatnost i uvjeti',
     'footer-copyright-link': 'Autorska prava',
-    'footer-copyright': '© 2025 PARKIRAJ.ME. Sva prava pridržana.'
+    'footer-copyright': '© 2025 PARKIRAJ.ME. Sva prava pridržana.',
+    'seeker-login-title': 'Prijavite se za traženje parkinga',
+    'provider-login-title': 'Prijavite se za iznajmljivanje',
+    'placeholder-username-email': 'Email ili korisničko ime',
+    'placeholder-password': 'Lozinka',
+    'placeholder-new-password': 'Lozinka',
+    'placeholder-confirm-password': 'Potvrdite lozinku',
+    'btn-login': 'Prijavite se',
+    'forgot-password': 'Zaboravili ste lozinku?',
+    'no-account': 'Nemate račun?',
+    'have-account': 'Već imate račun?',
+    'create-account': 'Stvorite račun',
+    'back-to-login': 'Prijavite se',
+    'login-success': 'Uspješna prijava!',
+    'reset-password-title': 'Resetiraj lozinku',
+    'reset-description': 'Unesite svoju email adresu i poslat ćemo vam kod za resetiranje lozinke.',
+    'placeholder-email-reset': 'Vaša email adresa',
+    'btn-get-code': 'Pošaljite kod',
+    'back-to-login-link': 'Povratak na prijavu',
+    'reset-code-sent': 'Vaš kod za prijavu je poslan na',
+    'check-inbox': 'Provjerite svoju poštu da biste resetirali lozinku!'
   },
   en: {
     'nav-home': 'Home',
@@ -172,7 +192,27 @@ const translations = {
     'footer-community-link': 'Join Our Community',
     'footer-privacy-link': 'Privacy & Terms',
     'footer-copyright-link': 'Copyright',
-    'footer-copyright': '© 2025 PARKIRAJ.ME. All rights reserved.'
+    'footer-copyright': '© 2025 PARKIRAJ.ME. All rights reserved.',
+    'seeker-login-title': 'Login to Find Parking',
+    'provider-login-title': 'Login to Rent Parking',
+    'placeholder-username-email': 'Email or username',
+    'placeholder-password': 'Password',
+    'placeholder-new-password': 'Password',
+    'placeholder-confirm-password': 'Confirm password',
+    'btn-login': 'Login',
+    'forgot-password': 'Forgot password?',
+    'no-account': "Don't have an account?",
+    'have-account': 'Already have an account?',
+    'create-account': 'Create account',
+    'back-to-login': 'Login',
+    'login-success': 'Login successful!',
+    'reset-password-title': 'Reset Password',
+    'reset-description': 'Enter your email address and we will send you a login code to reset your password.',
+    'placeholder-email-reset': 'Your email address',
+    'btn-get-code': 'Get login code',
+    'back-to-login-link': 'Back to login',
+    'reset-code-sent': 'Your login code has been sent to',
+    'check-inbox': 'Check your inbox to reset your password!'
   }
 };
 
@@ -1020,7 +1060,7 @@ function setupEventListeners() {
   if (langHr) langHr.addEventListener('click', () => setLanguage('hr'));
   if (langEn) langEn.addEventListener('click', () => setLanguage('en'));
 
-  // Navigation Event Listeners
+  // Updated Navigation Event Listeners - now go to login pages first
   const btnHome = document.getElementById('btn-home');
   const btnSeeker = document.getElementById('btn-seeker');
   const btnProvider = document.getElementById('btn-provider');
@@ -1030,12 +1070,132 @@ function setupEventListeners() {
   const ctaProvider = document.getElementById('cta-provider');
 
   if (btnHome) btnHome.onclick = () => showSection('home-section');
-  if (btnSeeker) btnSeeker.onclick = () => showSection('seeker-section');
-  if (btnProvider) btnProvider.onclick = () => showSection('provider-section');
+  if (btnSeeker) btnSeeker.onclick = () => showSection('seeker-login-section');
+  if (btnProvider) btnProvider.onclick = () => showSection('provider-login-section');
   if (btnAbout) btnAbout.onclick = () => showSection('about-section');
   if (btnContact) btnContact.onclick = () => showSection('contact-section');
-  if (ctaSeeker) ctaSeeker.onclick = () => showSection('seeker-section');
-  if (ctaProvider) ctaProvider.onclick = () => showSection('provider-section');
+  if (ctaSeeker) ctaSeeker.onclick = () => showSection('seeker-login-section');
+  if (ctaProvider) ctaProvider.onclick = () => showSection('provider-login-section');
+
+  // Login form submissions
+  const seekerLoginForm = document.getElementById('seeker-login-form');
+  const providerLoginForm = document.getElementById('provider-login-form');
+
+  if (seekerLoginForm) {
+    seekerLoginForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      showPopup('login-success', 'success');
+      setTimeout(() => {
+        showSection('seeker-registration-section');
+        // Skip to search form since user is "logged in"
+        const seekerForm = document.getElementById('seeker-form');
+        const seekerSearchForm = document.getElementById('parking-search-form');
+        if (seekerForm && seekerSearchForm) {
+          seekerForm.classList.add('hidden');
+          seekerSearchForm.classList.remove('hidden');
+        }
+      }, 1000);
+    });
+  }
+
+  if (providerLoginForm) {
+    providerLoginForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      showPopup('login-success', 'success');
+      setTimeout(() => {
+        showSection('provider-registration-section');
+        // Skip to upload form since user is "logged in"
+        const providerForm = document.getElementById('provider-form');
+        const providerUploadForm = document.getElementById('parking-upload-form');
+        if (providerForm && providerUploadForm) {
+          providerForm.classList.add('hidden');
+          providerUploadForm.classList.remove('hidden');
+        }
+      }, 1000);
+    });
+  }
+
+  // Forgot password links from login pages
+  const forgotPasswordLinks = document.querySelectorAll('.forgot-password');
+  forgotPasswordLinks.forEach(link => {
+    link.onclick = (e) => {
+      e.preventDefault();
+      showSection('password-reset-section');
+    };
+  });
+
+  // Password reset form submission
+  const passwordResetForm = document.getElementById('password-reset-form');
+  if (passwordResetForm) {
+    passwordResetForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = e.target.email.value;
+      
+      // Show custom success message with email
+      const popup = document.getElementById('popup-message');
+      if (popup) {
+        const resetMessage = `${translations[currentLanguage]['reset-code-sent']} "${email}". ${translations[currentLanguage]['check-inbox']}`;
+        popup.textContent = resetMessage;
+        popup.className = 'popup-message active reset-success';
+        setTimeout(() => {
+          popup.classList.remove('active');
+          // Redirect back to appropriate login page after showing message
+          setTimeout(() => {
+            showSection('seeker-login-section'); // Default to seeker login
+          }, 500);
+        }, 4000); // Show for 4 seconds instead of 3 for longer message
+      }
+      
+      // Clear the form
+      e.target.reset();
+    });
+  }
+
+  // Back to login from password reset
+  const backToLoginFromReset = document.getElementById('back-to-login-from-reset');
+  if (backToLoginFromReset) {
+    backToLoginFromReset.onclick = (e) => {
+      e.preventDefault();
+      // You can customize which login page to return to
+      showSection('seeker-login-section'); // Default to seeker login
+    };
+  }
+
+  // Signup links from login pages
+  const seekerSignupLink = document.getElementById('seeker-signup-link');
+  const providerSignupLink = document.getElementById('provider-signup-link');
+
+  if (seekerSignupLink) {
+    seekerSignupLink.onclick = (e) => {
+      e.preventDefault();
+      showSection('seeker-registration-section');
+    };
+  }
+
+  if (providerSignupLink) {
+    providerSignupLink.onclick = (e) => {
+      e.preventDefault();
+      showSection('provider-registration-section');
+    };
+  }
+
+  // Back to login links from registration pages
+  const backToSeekerLogin = document.getElementById('back-to-seeker-login');
+  const backToProviderLogin = document.getElementById('back-to-provider-login');
+
+  if (backToSeekerLogin) {
+    backToSeekerLogin.onclick = (e) => {
+      e.preventDefault();
+      showSection('seeker-login-section');
+    };
+  }
+
+  if (backToProviderLogin) {
+    backToProviderLogin.onclick = (e) => {
+      e.preventDefault();
+      showSection('provider-login-section');
+    };
+  }
 
   // Footer Navigation Event Listeners
   const footerAbout = document.getElementById('footer-about');
