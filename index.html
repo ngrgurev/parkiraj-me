@@ -34,239 +34,280 @@
   <main id="main-content">
     <!-- Home Section -->
     <section id="home-section" class="page-section active">
-      <h1 class="main-title" data-lang-key="main-title">Pronađi ili iznajmi parking mjesto u Hrvatskoj</h1>
-      <h2 class="subtitle" data-lang-key="subtitle">Povezujemo vlasnike parking mjesta s onima koji ih trebaju</h2>
-      <div class="cta-buttons">
-        <button id="cta-seeker" class="cta-btn" data-lang-key="cta-seeker">Tražim parking</button>
-        <button id="cta-provider" class="cta-btn" data-lang-key="cta-provider">Rentam parking</button>
+      <div class="centered-container">
+        <h1 class="main-title" data-lang-key="main-title">Pronađi ili iznajmi parking mjesto u Hrvatskoj</h1>
+        <h2 class="subtitle" data-lang-key="subtitle">Povezujemo vlasnike parking mjesta s onima koji ih trebaju</h2>
+        
+        <!-- City Search Section -->
+        <div class="city-search-container">
+          <h3 class="search-title" data-lang-key="search-title">Gdje želite pronaći parking?</h3>
+          <div class="search-form">
+            <input type="text" id="city-search-input" data-lang-key="placeholder-city-search" placeholder="Unesite naziv grada..." />
+            <button id="city-search-btn" class="search-btn" data-lang-key="btn-search">Pretraži</button>
+          </div>
+          <div id="search-result" class="search-result hidden"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Search Results Section -->
+    <section id="search-results-section" class="page-section">
+      <div class="centered-container">
+        <div class="results-header">
+          <h2 id="results-city-title" class="results-title"></h2>
+          <p id="results-count" class="results-count"></p>
+          <p class="login-prompt-text" data-lang-key="login-prompt-text">Za pregled detaljnih informacija o parking mjestima, molimo prijavite se ili registrirajte.</p>
+          <div class="login-register-buttons">
+            <button id="go-to-login" class="cta-btn" data-lang-key="btn-login">Prijavite se</button>
+            <button id="go-to-register" class="cta-btn" data-lang-key="btn-register">Registrirajte se</button>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- Seeker Login Section -->
     <section id="seeker-login-section" class="page-section">
-      <div class="login-container">
-        <h2 data-lang-key="seeker-login-title">Prijavite se za traženje parkinga</h2>
-        <form id="seeker-login-form" class="login-form">
-          <div class="form-group">
-            <input type="text" name="username" data-lang-key="placeholder-username-email" placeholder="Email ili korisničko ime" required />
-          </div>
-          <div class="form-group">
-            <input type="password" name="password" data-lang-key="placeholder-password" placeholder="Lozinka" required />
-          </div>
-          <button type="submit" class="login-btn" data-lang-key="btn-login">Prijavite se</button>
-          <div class="login-footer">
-            <a href="#" class="forgot-password" data-lang-key="forgot-password">Zaboravili ste lozinku?</a>
-            <p class="signup-prompt">
-              <span data-lang-key="no-account">Nemate račun?</span>
-              <a href="#" id="seeker-signup-link" data-lang-key="create-account">Stvorite račun</a>
-            </p>
-          </div>
-        </form>
+      <div class="centered-container">
+        <div class="login-container">
+          <h2 data-lang-key="seeker-login-title">Prijavite se za traženje parkinga</h2>
+          <form id="seeker-login-form" class="login-form">
+            <div class="form-group">
+              <input type="text" name="username" data-lang-key="placeholder-username-email" placeholder="Email ili korisničko ime" required />
+            </div>
+            <div class="form-group">
+              <input type="password" name="password" data-lang-key="placeholder-password" placeholder="Lozinka" required />
+            </div>
+            <button type="submit" class="login-btn" data-lang-key="btn-login">Prijavite se</button>
+            <div class="login-footer">
+              <a href="#" class="forgot-password" data-lang-key="forgot-password">Zaboravili ste lozinku?</a>
+              <p class="signup-prompt">
+                <span data-lang-key="no-account">Nemate račun?</span>
+                <a href="#" id="seeker-signup-link" data-lang-key="create-account">Stvorite račun</a>
+              </p>
+            </div>
+          </form>
+        </div>
       </div>
     </section>
 
     <!-- Provider Login Section -->
     <section id="provider-login-section" class="page-section">
-      <div class="login-container">
-        <h2 data-lang-key="provider-login-title">Prijavite se za iznajmljivanje</h2>
-        <form id="provider-login-form" class="login-form">
-          <div class="form-group">
-            <input type="text" name="username" data-lang-key="placeholder-username-email" placeholder="Email ili korisničko ime" required />
-          </div>
-          <div class="form-group">
-            <input type="password" name="password" data-lang-key="placeholder-password" placeholder="Lozinka" required />
-          </div>
-          <button type="submit" class="login-btn" data-lang-key="btn-login">Prijavite se</button>
-          <div class="login-footer">
-            <a href="#" class="forgot-password" data-lang-key="forgot-password">Zaboravili ste lozinku?</a>
-            <p class="signup-prompt">
-              <span data-lang-key="no-account">Nemate račun?</span>
-              <a href="#" id="provider-signup-link" data-lang-key="create-account">Stvorite račun</a>
-            </p>
-          </div>
-        </form>
+      <div class="centered-container">
+        <div class="login-container">
+          <h2 data-lang-key="provider-login-title">Prijavite se za iznajmljivanje</h2>
+          <form id="provider-login-form" class="login-form">
+            <div class="form-group">
+              <input type="text" name="username" data-lang-key="placeholder-username-email" placeholder="Email ili korisničko ime" required />
+            </div>
+            <div class="form-group">
+              <input type="password" name="password" data-lang-key="placeholder-password" placeholder="Lozinka" required />
+            </div>
+            <button type="submit" class="login-btn" data-lang-key="btn-login">Prijavite se</button>
+            <div class="login-footer">
+              <a href="#" class="forgot-password" data-lang-key="forgot-password">Zaboravili ste lozinku?</a>
+              <p class="signup-prompt">
+                <span data-lang-key="no-account">Nemate račun?</span>
+                <a href="#" id="provider-signup-link" data-lang-key="create-account">Stvorite račun</a>
+              </p>
+            </div>
+          </form>
+        </div>
       </div>
     </section>
 
     <!-- Password Reset Section -->
     <section id="password-reset-section" class="page-section">
-      <div class="login-container">
-        <h2 data-lang-key="reset-password-title">Resetiraj lozinku</h2>
-        <p class="reset-description" data-lang-key="reset-description">Unesite svoju email adresu i poslat ćemo vam kod za resetiranje lozinke.</p>
-        <form id="password-reset-form" class="login-form">
-          <div class="form-group">
-            <input type="email" name="email" data-lang-key="placeholder-email-reset" placeholder="Vaša email adresa" required />
-          </div>
-          <button type="submit" class="login-btn" data-lang-key="btn-get-code">Pošaljite kod</button>
-          <div class="login-footer">
-            <p class="back-to-login">
-              <a href="#" id="back-to-login-from-reset" data-lang-key="back-to-login-link">Povratak na prijavu</a>
-            </p>
-          </div>
-        </form>
+      <div class="centered-container">
+        <div class="login-container">
+          <h2 data-lang-key="reset-password-title">Resetiraj lozinku</h2>
+          <p class="reset-description" data-lang-key="reset-description">Unesite svoju email adresu i poslat ćemo vam kod za resetiranje lozinke.</p>
+          <form id="password-reset-form" class="login-form">
+            <div class="form-group">
+              <input type="email" name="email" data-lang-key="placeholder-email-reset" placeholder="Vaša email adresa" required />
+            </div>
+            <button type="submit" class="login-btn" data-lang-key="btn-get-code">Pošaljite kod</button>
+            <div class="login-footer">
+              <p class="back-to-login">
+                <a href="#" id="back-to-login-from-reset" data-lang-key="back-to-login-link">Povratak na prijavu</a>
+              </p>
+            </div>
+          </form>
+        </div>
       </div>
     </section>
 
     <!-- Seeker Registration Section -->
     <section id="seeker-registration-section" class="page-section">
-      <form id="seeker-form" autocomplete="off">
-        <h2 data-lang-key="seeker-registration">Registracija korisnika</h2>
-        <div class="form-row">
-          <input type="text" name="ime" data-lang-key="placeholder-name" placeholder="Ime" required />
-          <input type="text" name="prezime" data-lang-key="placeholder-surname" placeholder="Prezime" required />
-        </div>
-        <div class="form-row">
-          <input type="email" name="email" data-lang-key="placeholder-email" placeholder="Email" required />
-          <input type="date" name="dob" data-lang-key="placeholder-dob" placeholder="Datum rođenja" required />
-        </div>
-        <div class="form-row">
-          <input type="text" name="kontakt" data-lang-key="placeholder-contact" placeholder="Kontakt broj" required />
-          <input type="text" name="lokacija" data-lang-key="placeholder-location" placeholder="Lokacija" required />
-        </div>
-        <div class="form-row">
-          <input type="password" name="password" data-lang-key="placeholder-new-password" placeholder="Lozinka" required />
-          <input type="password" name="confirm-password" data-lang-key="placeholder-confirm-password" placeholder="Potvrdite lozinku" required />
-        </div>
-        <button type="submit" class="form-btn" data-lang-key="btn-register">Registriraj se</button>
-        <p class="login-prompt">
-          <span data-lang-key="have-account">Već imate račun?</span>
-          <a href="#" id="back-to-seeker-login" data-lang-key="back-to-login">Prijavite se</a>
-        </p>
-      </form>
-      <form id="parking-search-form" autocomplete="off" class="hidden">
-        <h2 data-lang-key="search-parking">Traži parking</h2>
-        <div class="form-row">
-          <input type="text" name="auto" data-lang-key="placeholder-vehicle" placeholder="Detalji vozila" required />
-          <input type="datetime-local" name="od" min="1900-01-01T00:00" max="2030-12-31T23:59" required />
-          <input type="datetime-local" name="do" min="1900-01-01T00:00" max="2030-12-31T23:59" required />
-        </div>
-        <div class="form-row">
-          <input type="text" name="lokacija" data-lang-key="placeholder-location" placeholder="Lokacija" required />
-          <input type="number" name="cijena" data-lang-key="placeholder-max-price" placeholder="Maks. cijena (EUR)" min="0" />
-        </div>
-        <button type="submit" class="form-btn" data-lang-key="btn-find-parking">Pronađi parking</button>
-      </form>
-      <div id="search-results" class="results-list"></div>
-      <div id="seeker-map" class="map-container hidden"></div>
+      <div class="centered-container">
+        <form id="seeker-form" autocomplete="off">
+          <h2 data-lang-key="seeker-registration">Registracija korisnika</h2>
+          <div class="form-row">
+            <input type="text" name="ime" data-lang-key="placeholder-name" placeholder="Ime" required />
+            <input type="text" name="prezime" data-lang-key="placeholder-surname" placeholder="Prezime" required />
+          </div>
+          <div class="form-row">
+            <input type="email" name="email" data-lang-key="placeholder-email" placeholder="Email" required />
+            <input type="date" name="dob" data-lang-key="placeholder-dob" placeholder="Datum rođenja" required />
+          </div>
+          <div class="form-row">
+            <input type="text" name="kontakt" data-lang-key="placeholder-contact" placeholder="Kontakt broj" required />
+            <input type="text" name="lokacija" data-lang-key="placeholder-location" placeholder="Lokacija" required />
+          </div>
+          <div class="form-row">
+            <input type="password" name="password" data-lang-key="placeholder-new-password" placeholder="Lozinka" required />
+            <input type="password" name="confirm-password" data-lang-key="placeholder-confirm-password" placeholder="Potvrdite lozinku" required />
+          </div>
+          <button type="submit" class="form-btn" data-lang-key="btn-register">Registriraj se</button>
+          <p class="login-prompt">
+            <span data-lang-key="have-account">Već imate račun?</span>
+            <a href="#" id="back-to-seeker-login" data-lang-key="back-to-login">Prijavite se</a>
+          </p>
+        </form>
+        <form id="parking-search-form" autocomplete="off" class="hidden">
+          <h2 data-lang-key="search-parking">Traži parking</h2>
+          <div class="form-row">
+            <input type="text" name="auto" data-lang-key="placeholder-vehicle" placeholder="Detalji vozila" required />
+            <input type="datetime-local" name="od" min="1900-01-01T00:00" max="2030-12-31T23:59" required />
+            <input type="datetime-local" name="do" min="1900-01-01T00:00" max="2030-12-31T23:59" required />
+          </div>
+          <div class="form-row">
+            <input type="text" name="lokacija" data-lang-key="placeholder-location" placeholder="Lokacija" required />
+            <input type="number" name="cijena" data-lang-key="placeholder-max-price" placeholder="Maks. cijena (EUR)" min="0" />
+          </div>
+          <button type="submit" class="form-btn" data-lang-key="btn-find-parking">Pronađi parking</button>
+        </form>
+        <div id="search-results" class="results-list"></div>
+        <div id="seeker-map" class="map-container hidden"></div>
+      </div>
     </section>
 
     <!-- Provider Registration Section -->
     <section id="provider-registration-section" class="page-section">
-      <form id="provider-form" autocomplete="off">
-        <h2 data-lang-key="provider-registration">Registracija iznajmljivača</h2>
-        <div class="form-row">
-          <input type="text" name="ime" data-lang-key="placeholder-name" placeholder="Ime" required />
-          <input type="text" name="prezime" data-lang-key="placeholder-surname" placeholder="Prezime" required />
-        </div>
-        <div class="form-row">
-          <input type="email" name="email" data-lang-key="placeholder-email" placeholder="Email" required />
-          <input type="date" name="dob" data-lang-key="placeholder-dob" placeholder="Datum rođenja" required />
-        </div>
-        <div class="form-row">
-          <input type="text" name="kontakt" data-lang-key="placeholder-contact" placeholder="Kontakt broj" required />
-          <input type="text" name="lokacija" data-lang-key="placeholder-parking-location" placeholder="Lokacija parkinga" required />
-        </div>
-        <div class="form-row">
-          <input type="password" name="password" data-lang-key="placeholder-new-password" placeholder="Lozinka" required />
-          <input type="password" name="confirm-password" data-lang-key="placeholder-confirm-password" placeholder="Potvrdite lozinku" required />
-        </div>
-        <button type="submit" class="form-btn" data-lang-key="btn-register">Registriraj se</button>
-        <p class="login-prompt">
-          <span data-lang-key="have-account">Već imate račun?</span>
-          <a href="#" id="back-to-provider-login" data-lang-key="back-to-login">Prijavite se</a>
-        </p>
-      </form>
-      <form id="parking-upload-form" autocomplete="off" class="hidden">
-        <h2 data-lang-key="add-parking">Dodaj parking mjesto</h2>
-        <div class="form-row">
-          <select name="velicina" required>
-            <option value="" data-lang-key="select-size">Veličina</option>
-            <option value="malo" data-lang-key="size-small">Malo</option>
-            <option value="srednje" data-lang-key="size-medium">Srednje</option>
-            <option value="veliko" data-lang-key="size-large">Veliko</option>
-          </select>
-          <input type="text" name="lokacija" data-lang-key="placeholder-location" placeholder="Lokacija" required />
-        </div>
-        <div class="form-row">
-          <input type="text" name="pristup" data-lang-key="placeholder-access" placeholder="Pristup (garaža, dvorište...)" required />
-          <input type="number" name="cijena" data-lang-key="placeholder-price-per-day" placeholder="Cijena (EUR/dan)" min="0" required />
-        </div>
-        <div class="form-row">
-          <input type="text" name="kontakt" data-lang-key="placeholder-contact" placeholder="Kontakt broj" required />
-          <input type="number" name="trajanje" data-lang-key="placeholder-rental-duration" placeholder="Duljina najma (dana)" min="1" required />
-        </div>
-        <button type="submit" class="form-btn" data-lang-key="btn-add-parking">Dodaj parking</button>
-      </form>
-      <div id="provider-listings" class="results-list"></div>
-      <div id="provider-map" class="map-container hidden"></div>
+      <div class="centered-container">
+        <form id="provider-form" autocomplete="off">
+          <h2 data-lang-key="provider-registration">Registracija iznajmljivača</h2>
+          <div class="form-row">
+            <input type="text" name="ime" data-lang-key="placeholder-name" placeholder="Ime" required />
+            <input type="text" name="prezime" data-lang-key="placeholder-surname" placeholder="Prezime" required />
+          </div>
+          <div class="form-row">
+            <input type="email" name="email" data-lang-key="placeholder-email" placeholder="Email" required />
+            <input type="date" name="dob" data-lang-key="placeholder-dob" placeholder="Datum rođenja" required />
+          </div>
+          <div class="form-row">
+            <input type="text" name="kontakt" data-lang-key="placeholder-contact" placeholder="Kontakt broj" required />
+            <input type="text" name="lokacija" data-lang-key="placeholder-parking-location" placeholder="Lokacija parkinga" required />
+          </div>
+          <div class="form-row">
+            <input type="password" name="password" data-lang-key="placeholder-new-password" placeholder="Lozinka" required />
+            <input type="password" name="confirm-password" data-lang-key="placeholder-confirm-password" placeholder="Potvrdite lozinku" required />
+          </div>
+          <button type="submit" class="form-btn" data-lang-key="btn-register">Registriraj se</button>
+          <p class="login-prompt">
+            <span data-lang-key="have-account">Već imate račun?</span>
+            <a href="#" id="back-to-provider-login" data-lang-key="back-to-login">Prijavite se</a>
+          </p>
+        </form>
+        <form id="parking-upload-form" autocomplete="off" class="hidden">
+          <h2 data-lang-key="add-parking">Dodaj parking mjesto</h2>
+          <div class="form-row">
+            <select name="velicina" required>
+              <option value="" data-lang-key="select-size">Veličina</option>
+              <option value="malo" data-lang-key="size-small">Malo</option>
+              <option value="srednje" data-lang-key="size-medium">Srednje</option>
+              <option value="veliko" data-lang-key="size-large">Veliko</option>
+            </select>
+            <input type="text" name="lokacija" data-lang-key="placeholder-location" placeholder="Lokacija" required />
+          </div>
+          <div class="form-row">
+            <input type="text" name="pristup" data-lang-key="placeholder-access" placeholder="Pristup (garaža, dvorište...)" required />
+            <input type="number" name="cijena" data-lang-key="placeholder-price-per-day" placeholder="Cijena (EUR/dan)" min="0" required />
+          </div>
+          <div class="form-row">
+            <input type="text" name="kontakt" data-lang-key="placeholder-contact" placeholder="Kontakt broj" required />
+            <input type="number" name="trajanje" data-lang-key="placeholder-rental-duration" placeholder="Duljina najma (dana)" min="1" required />
+          </div>
+          <button type="submit" class="form-btn" data-lang-key="btn-add-parking">Dodaj parking</button>
+        </form>
+        <div id="provider-listings" class="results-list"></div>
+        <div id="provider-map" class="map-container hidden"></div>
+      </div>
     </section>
 
     <!-- About Section -->
     <section id="about-section" class="page-section">
-      <div class="content-page">
-        <h2 data-lang-key="about-title">O PARKIRAJ.ME</h2>
-        <div class="content-text">
-          <p data-lang-key="about-intro">PARKIRAJ.ME je inovativna platforma koja povezuje vlasnike parking mjesta s onima koji ih trebaju širom Hrvatske.</p>
-          <p data-lang-key="about-mission">Naša misija je jednostavna - učiniti pronalaženje i iznajmljivanje parking mjesta lakšim, sigurnijim i dostupnijim za sve.</p>
-          <h3 data-lang-key="about-features">Ključne značajke:</h3>
-          <ul>
-            <li data-lang-key="feature-1">Jednostavna registracija i korištenje</li>
-            <li data-lang-key="feature-2">Sigurna platforma za transakcije</li>
-            <li data-lang-key="feature-3">Interaktivne karte i filtriranje</li>
-            <li data-lang-key="feature-4">Podrška za različite tipove parking mjesta</li>
-            <li data-lang-key="feature-5">Mobilno optimizirana aplikacija</li>
-          </ul>
+      <div class="centered-container">
+        <div class="content-page">
+          <h2 data-lang-key="about-title">O PARKIRAJ.ME</h2>
+          <div class="content-text">
+            <p data-lang-key="about-intro">PARKIRAJ.ME je inovativna platforma koja povezuje vlasnike parking mjesta s onima koji ih trebaju širom Hrvatske.</p>
+            <p data-lang-key="about-mission">Naša misija je jednostavna - učiniti pronalaženje i iznajmljivanje parking mjesta lakšim, sigurnijim i dostupnijim za sve.</p>
+            <h3 data-lang-key="about-features">Ključne značajke:</h3>
+            <ul>
+              <li data-lang-key="feature-1">Jednostavna registracija i korištenje</li>
+              <li data-lang-key="feature-2">Sigurna platforma za transakcije</li>
+              <li data-lang-key="feature-3">Interaktivne karte i filtriranje</li>
+              <li data-lang-key="feature-4">Podrška za različite tipove parking mjesta</li>
+              <li data-lang-key="feature-5">Mobilno optimizirana aplikacija</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact-section" class="page-section">
-      <div class="content-page">
-        <h2 data-lang-key="contact-title">Kontaktirajte nas</h2>
-        <form id="contact-form" class="contact-form">
-          <div class="form-row">
-            <input type="text" name="name" data-lang-key="placeholder-name" placeholder="Ime i prezime" required />
-            <input type="email" name="email" data-lang-key="placeholder-email" placeholder="Email adresa" required />
-          </div>
-          <div class="form-row">
-            <input type="text" name="subject" data-lang-key="placeholder-subject" placeholder="Naslov poruke" required />
-          </div>
-          <div class="form-row">
-            <textarea name="message" rows="5" data-lang-key="placeholder-message" placeholder="Vaša poruka..." required></textarea>
-          </div>
-          <button type="submit" class="form-btn" data-lang-key="btn-send-message">Pošaljite poruku</button>
-        </form>
+      <div class="centered-container">
+        <div class="content-page">
+          <h2 data-lang-key="contact-title">Kontaktirajte nas</h2>
+          <form id="contact-form" class="contact-form">
+            <div class="form-row">
+              <input type="text" name="name" data-lang-key="placeholder-name" placeholder="Ime i prezime" required />
+              <input type="email" name="email" data-lang-key="placeholder-email" placeholder="Email adresa" required />
+            </div>
+            <div class="form-row">
+              <input type="text" name="subject" data-lang-key="placeholder-subject" placeholder="Naslov poruke" required />
+            </div>
+            <div class="form-row">
+              <textarea name="message" rows="5" data-lang-key="placeholder-message" placeholder="Vaša poruka..." required></textarea>
+            </div>
+            <button type="submit" class="form-btn" data-lang-key="btn-send-message">Pošaljite poruku</button>
+          </form>
+        </div>
       </div>
     </section>
 
     <!-- Privacy Policy Section -->
     <section id="privacy-section" class="page-section">
-      <div class="content-page">
-        <h2 data-lang-key="privacy-title">Pravila privatnosti i uvjeti korištenja</h2>
-        <div class="content-text">
-          <h3 data-lang-key="privacy-policy">Pravila privatnosti</h3>
-          <p data-lang-key="privacy-intro">Vaša privatnost je važna za nas. Ova politika privatnosti objašnjava kako prikupljamo, koristimo i štitimo vaše podatke.</p>
-          <h4 data-lang-key="data-collection">Prikupljanje podataka</h4>
-          <p data-lang-key="data-collection-text">Prikupljamo samo podatke potrebne za pružanje naših usluga, uključujući ime, email, kontakt broj i lokaciju.</p>
-          
-          <h3 data-lang-key="terms-service">Uvjeti korištenja</h3>
-          <p data-lang-key="terms-intro">Korištenjem PARKIRAJ.ME platforme, slažete se s našim uvjetima korištenja.</p>
-          <h4 data-lang-key="user-responsibilities">Odgovornosti korisnika</h4>
-          <p data-lang-key="user-responsibilities-text">Korisnici su odgovorni za točnost podataka i poštovanje dogovorenih uvjeta najma.</p>
+      <div class="centered-container">
+        <div class="content-page">
+          <h2 data-lang-key="privacy-title">Pravila privatnosti i uvjeti korištenja</h2>
+          <div class="content-text">
+            <h3 data-lang-key="privacy-policy">Pravila privatnosti</h3>
+            <p data-lang-key="privacy-intro">Vaša privatnost je važna za nas. Ova politika privatnosti objašnjava kako prikupljamo, koristimo i štitimo vaše podatke.</p>
+            <h4 data-lang-key="data-collection">Prikupljanje podataka</h4>
+            <p data-lang-key="data-collection-text">Prikupljamo samo podatke potrebne za pružanje naših usluga, uključujući ime, email, kontakt broj i lokaciju.</p>
+            
+            <h3 data-lang-key="terms-service">Uvjeti korištenja</h3>
+            <p data-lang-key="terms-intro">Korištenjem PARKIRAJ.ME platforme, slažete se s našim uvjetima korištenja.</p>
+            <h4 data-lang-key="user-responsibilities">Odgovornosti korisnika</h4>
+            <p data-lang-key="user-responsibilities-text">Korisnici su odgovorni za točnost podataka i poštovanje dogovorenih uvjeta najma.</p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Copyright Section -->
     <section id="copyright-section" class="page-section">
-      <div class="content-page">
-        <h2 data-lang-key="copyright-title">Autorska prava</h2>
-        <div class="content-text">
-          <p data-lang-key="copyright-notice">© 2025 PARKIRAJ.ME. Sva prava pridržana.</p>
-          <p data-lang-key="copyright-text">Sav sadržaj na ovoj platformi, uključujući dizajn, logotip, tekst i funkcionalnost, zaštićen je autorskim pravima.</p>
-          <h3 data-lang-key="intellectual-property">Intelektualno vlasništvo</h3>
-          <p data-lang-key="ip-text">PARKIRAJ.ME je registrirana trgovačka marka. Neovlašteno korištenje bilo kojeg dijela platforme strogo je zabranjeno.</p>
+      <div class="centered-container">
+        <div class="content-page">
+          <h2 data-lang-key="copyright-title">Autorska prava</h2>
+          <div class="content-text">
+            <p data-lang-key="copyright-notice">© 2025 PARKIRAJ.ME. Sva prava pridržana.</p>
+            <p data-lang-key="copyright-text">Sav sadržaj na ovoj platformi, uključujući dizajn, logotip, tekst i funkcionalnost, zaštićen je autorskim pravima.</p>
+            <h3 data-lang-key="intellectual-property">Intelektualno vlasništvo</h3>
+            <p data-lang-key="ip-text">PARKIRAJ.ME je registrirana trgovačka marka. Neovlašteno korištenje bilo kojeg dijela platforme strogo je zabranjeno.</p>
+          </div>
         </div>
       </div>
     </section>
