@@ -48,6 +48,8 @@ header {
   position: sticky;
   top: 0;
   z-index: 10;
+  height: 80px;
+  box-sizing: border-box;
 }
 
 .logo {
@@ -127,38 +129,48 @@ nav {
 }
 
 main {
-  padding: 3rem 1rem 2rem 1rem;
-  max-width: 700px;
-  margin: 0 auto;
+  padding: 0;
+  margin: 0;
   z-index: 1;
   position: relative;
 }
 
+/* FIXED: All sections now properly centered and static in viewport */
 .page-section {
   display: none;
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  min-height: calc(100vh - 80px);
+  width: 100%;
+  position: relative;
 }
+
 .page-section.active {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   opacity: 1;
   transform: translateY(0);
   animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(40px);}
   to { opacity: 1; transform: translateY(0);}
 }
 
-/* Centered Homepage Layout */
-#home-section {
-  text-align: center;
+/* Centered container for all content */
+.centered-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 60vh;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2rem;
+  box-sizing: border-box;
 }
 
 .main-title {
@@ -186,6 +198,119 @@ main {
   margin-bottom: 2.5rem;
   animation: fadeIn 1.2s;
   text-align: center;
+}
+
+/* City Search Container */
+.city-search-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.search-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--sky-blue-active);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.5px;
+}
+
+.search-form {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+#city-search-input {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  padding: 0.8rem 1.2rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  outline: none;
+  background: #f9fafb;
+  transition: border 0.2s, box-shadow 0.2s;
+  flex: 1;
+  max-width: 300px;
+}
+
+#city-search-input:focus {
+  border: 2px solid var(--sky-blue);
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+}
+
+.search-btn {
+  background: var(--sky-blue);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 8px;
+  padding: 0.8rem 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.search-btn:hover {
+  background: var(--sky-blue-hover);
+  transform: translateY(-1px);
+}
+
+.search-result {
+  background: var(--popup-bg);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 1rem;
+  box-shadow: 0 4px 32px rgba(14,165,233,0.08);
+  animation: fadeInUp 0.6s;
+}
+
+.search-result.hidden {
+  display: none;
+}
+
+/* Search Results Section */
+.results-header {
+  text-align: center;
+  background: var(--popup-bg);
+  border-radius: 12px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 32px rgba(14,165,233,0.08);
+  animation: fadeInUp 0.6s;
+  width: 100%;
+  max-width: 600px;
+}
+
+.results-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--sky-blue-active);
+  margin-bottom: 1rem;
+}
+
+.results-count {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--sky-blue);
+  margin-bottom: 2rem;
+}
+
+.login-prompt-text {
+  font-size: 1.1rem;
+  color: #374151;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+.login-register-buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
 }
 
 .cta-buttons {
@@ -362,6 +487,8 @@ form {
   padding: 2rem 1.2rem;
   margin-bottom: 2rem;
   animation: fadeInUp 0.6s;
+  width: 100%;
+  max-width: 600px;
 }
 form h2 {
   font-size: 1.3rem;
@@ -422,6 +549,7 @@ input:focus, select:focus {
   gap: 1.2rem;
   margin-bottom: 2rem;
   margin-top: 1rem;
+  width: 100%;
 }
 .result-card {
   background: #fff;
@@ -617,6 +745,8 @@ input:focus, select:focus {
   padding: 2.5rem;
   margin-bottom: 2rem;
   animation: fadeInUp 0.6s;
+  width: 100%;
+  max-width: 600px;
 }
 
 .content-page h2 {
@@ -664,6 +794,7 @@ input:focus, select:focus {
 .contact-form {
   max-width: 600px;
   margin: 0 auto;
+  width: 100%;
 }
 
 .contact-form textarea {
@@ -688,10 +819,25 @@ input:focus, select:focus {
   display: none !important;
 }
 
-/* Mobile responsiveness for login pages */
+/* Mobile responsiveness */
 @media (max-width: 700px) {
+  header {
+    padding: 0.5rem 1rem;
+    height: auto;
+    min-height: 60px;
+  }
+  
+  .page-section {
+    min-height: calc(100vh - 60px);
+    padding: 1rem;
+  }
+  
+  .centered-container {
+    padding: 1rem;
+  }
+  
   .login-container {
-    margin: 1rem;
+    margin: 0;
     padding: 1.5rem;
   }
   
@@ -706,6 +852,50 @@ input:focus, select:focus {
   .login-btn {
     padding: 0.8rem 1.5rem;
     font-size: 1rem;
+  }
+  
+  .search-form {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  #city-search-input {
+    max-width: 100%;
+  }
+  
+  .login-register-buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .content-page {
+    padding: 1.5rem;
+  }
+  
+  .main-title { 
+    font-size: 1.5rem; 
+  }
+  
+  .subtitle { 
+    font-size: 1rem; 
+  }
+  
+  .cta-buttons { 
+    flex-direction: column; 
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  form { 
+    padding: 1.2rem 0.5rem;
+  }
+  
+  .map-container { 
+    height: 180px;
+  }
+  
+  .language-toggle { 
+    margin-left: 0.5rem; 
   }
 }
 
@@ -725,25 +915,7 @@ input:focus, select:focus {
     text-align: center;
   }
   
-  .content-page {
-    padding: 1.5rem;
-  }
-  
   .content-page h2 {
     font-size: 1.5rem;
   }
-}
-
-@media (max-width: 700px) {
-  main { padding: 1.5rem 0.5rem 2rem 0.5rem; }
-  .main-title { font-size: 1.5rem; }
-  .subtitle { font-size: 1rem; }
-  .cta-buttons { 
-    flex-direction: column; 
-    gap: 1rem;
-    align-items: center;
-  }
-  form { padding: 1.2rem 0.5rem;}
-  .map-container { height: 180px;}
-  .language-toggle { margin-left: 0.5rem; }
 }
